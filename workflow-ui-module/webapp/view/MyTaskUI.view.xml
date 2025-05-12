@@ -1,0 +1,241 @@
+<mvc:View controllerName="workflowuimodule.controller.MyTaskUI" 
+    xmlns:html="http://www.w3.org/1999/xhtml"
+    xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+    xmlns:l="sap.ui.layout"
+    xmlns:f="sap.ui.layout.form"
+    xmlns:core="sap.ui.core"
+    xmlns:form="sap.ui.layout.form"
+    xmlns:smartForm="sap.ui.comp.smartform"
+    xmlns:smartField="sap.ui.comp.smartfield"
+    xmlns="sap.m">
+    <Page id = "scroll" showHeader="false">
+        <content>
+            <l:Grid
+                defaultSpan="XL2 L2 M2 S12"
+                hSpacing="1"
+                vSpacing="1">
+
+                <HBox  >
+                    <Label text="MDR No" class="sapUiTinyMarginEnd" width="auto" labelFor="mdrNo" vAlign="Middle"/>
+                    <Text id="mdrNo" text="{context>/customerName}" class="sapUiTinyMarginEnd" width="auto" textAlign="Center" />
+                </HBox>
+                
+                <HBox  >
+                    <Label text="MDR Date" class="sapUiTinyMarginEnd" width="auto" vAlign="Middle"/>
+                    <Text text="{context>/orderNumber}" class="sapUiTinyMarginBegin" width="auto" textAlign="Center"/>
+                </HBox>
+                
+                <HBox  >
+                    <Label text="MDN Type" class="sapUiTinyMarginEnd" width="auto" vAlign="Middle"/>
+                    <Text text="{context>/orderDate}" class="sapUiTinyMarginBegin" width="auto" textAlign="Center"/>
+                </HBox>
+                
+                <HBox  >
+                    <Label text="Total Value of MDN" class="sapUiTinyMarginEnd" width="auto" vAlign="Middle"/>
+                    <Text text="{context>/expectedDate}" class="sapUiTinyMarginBegin" width="auto" textAlign="Center"/>
+                </HBox>
+                
+                <HBox  >
+                    <Label text="Purchase Value" class="sapUiTinyMarginEnd" width="auto" vAlign="Middle"/>
+                    <Text text="{context>/orderAmount}" class="sapUiTinyMarginBegin" width="auto" textAlign="Center"/>
+                </HBox>
+
+            </l:Grid>
+            <!-- <html:hr></html:hr>
+            <l:Grid
+                defaultSpan="XL2 L2 M2 S12"
+                hSpacing="1"
+                vSpacing="1">
+                
+                <HBox  >
+                    <Label text="Reason for Obselence" class="sapUiTinyMarginEnd" width="auto" vAlign="Middle"/>
+                    <Text text="{context>/orderNumber}" class="sapUiTinyMarginBegin" width="auto" textAlign="Center"/>
+                </HBox>
+            </l:Grid>
+            <l:Grid
+                defaultSpan="XL2 L2 M2 S12"
+                hSpacing="1"
+                vSpacing="1">
+                
+                <HBox  >
+                    <Label text="Other" class="sapUiTinyMarginEnd" width="auto" vAlign="Middle"/>
+                    <Text text="{context>/orderNumber}" class="sapUiTinyMarginBegin" width="auto" textAlign="Center"/>
+                </HBox>
+            </l:Grid>
+
+        <html:hr></html:hr>
+            <l:Grid
+                defaultSpan="XL2 L2 M2 S12"
+                hSpacing="1"
+                vSpacing="1">
+
+                <HBox >
+                    <Label text="Loss Brone By" class="sapUiTinyMarginEnd" width="auto" vAlign="Middle"/>
+                    <Text text="{context>/customerName}" class="sapUiTinyMarginBegin" width="auto" textAlign="Center"/>
+                </HBox>
+            </l:Grid>
+            <l:Grid defaultSpan="XL2 L2 M2 S12"
+                hSpacing="1"
+                vSpacing="1">
+                    <HBox >
+                        <Label text="Market/Country" class="sapUiTinyMarginEnd" width="auto" vAlign="Middle"/>
+                        <Text text="{context>/orderNumber}" class="sapUiTinyMarginBegin" width="auto" textAlign="Center"/>
+                    </HBox>
+                    
+                    <HBox >
+                        <Label text="Pharma Mfg Location" class="sapUiTinyMarginEnd" width="auto" vAlign="Middle"/>
+                        <Text text="{context>/orderNumber}" class="sapUiTinyMarginBegin" width="auto" textAlign="Center"/>
+                    </HBox>
+
+                    <HBox >
+                        <Label text="Vendor" class="sapUiTinyMarginEnd" width="auto" vAlign="Middle"/>
+                        <Text text="{context>/orderNumber}" class="sapUiTinyMarginBegin" width="auto" textAlign="Center"/>
+                    </HBox>
+
+                    <HBox >
+                        <Label text="Others" class="sapUiTinyMarginEnd" width="auto" vAlign="Middle"/>
+                        <Text text="{context>/orderNumber}" class="sapUiTinyMarginBegin" width="auto" textAlign="Center"/>
+                    </HBox>
+            </l:Grid>
+        <html:hr></html:hr>
+        <l:Grid
+                defaultSpan="XL2 L2 M2 S12"
+                hSpacing="1"
+                vSpacing="1">
+
+                <HBox  >
+                    <Label text="User Remarks" class="sapUiTinyMarginEnd" width="auto" vAlign="Middle"/>
+                    <Text text="{context>/customerName}" class="sapUiTinyMarginBegin" width="auto" textAlign="Center"/>
+                </HBox>
+        </l:Grid>
+        <html:hr></html:hr>
+        <l:Grid
+                defaultSpan="XL2 L2 M2 S12"
+                hSpacing="1"
+                vSpacing="1">
+
+                <HBox  alignItems="Center">
+                    <Label text="Send for Approval" class="sapUiTinyMarginEnd" width="auto" vAlign="Middle"/>
+                    <Select width="auto">
+                        <items>
+                            <core:Item key="app1" text="Approver 1"></core:Item>
+                            <core:Item key="app2" text="Approver 2"></core:Item>
+                            <core:Item key="app3" text="Approver 3"></core:Item>
+                        </items>
+                    </Select>
+                </HBox>
+        </l:Grid>
+        <html:hr></html:hr>
+        <l:Grid
+                defaultSpan="XL2 L2 M2 S12"
+                hSpacing="1"
+                vSpacing="1">
+
+                <HBox alignItems="Center">
+                    <Label text="Comments/Remarks" class="sapUiTinyMarginEnd" width="auto" vAlign="Middle"/>
+                    <TextArea value="{context>/comment}" class="sapUiTinyMarginBegin" width="600px" height="150px"/>
+                </HBox>
+        </l:Grid> -->
+        <IconTabBar >
+            <items>
+                <IconTabFilter icon="sap-icon://process">
+                    <l:Grid
+                defaultSpan="XL2 L2 M2 S12"
+                hSpacing="1"
+                vSpacing="1" width="auto">
+                
+                <HBox  >
+                    <Label text="Reason for Obselence" class="sapUiTinyMarginEnd" width="auto" vAlign="Middle"/>
+                    <Text text="{context>/orderNumber}" class="sapUiTinyMarginBegin" width="auto" textAlign="Center"/>
+                </HBox>
+            </l:Grid>
+            <l:Grid
+                defaultSpan="XL2 L2 M2 S12"
+                hSpacing="1"
+                vSpacing="1" width="auto">
+                
+                <HBox  >
+                    <Label text="Other" class="sapUiTinyMarginEnd" width="auto" vAlign="Middle"/>
+                    <Text text="{context>/orderNumber}" class="sapUiTinyMarginBegin" width="auto" textAlign="Center"/>
+                </HBox>
+            </l:Grid>
+
+        <html:hr></html:hr>
+            <l:Grid
+                defaultSpan="XL2 L2 M2 S12"
+                hSpacing="1"
+                vSpacing="1">
+
+                <HBox >
+                    <Label text="Loss Brone By" class="sapUiTinyMarginEnd" width="auto" vAlign="Middle"/>
+                    <Text text="{context>/customerName}" class="sapUiTinyMarginBegin" width="auto" textAlign="Center"/>
+                </HBox>
+            </l:Grid>
+            <l:Grid defaultSpan="XL2 L2 M2 S12"
+                hSpacing="1"
+                vSpacing="1">
+                    <HBox >
+                        <Label text="Market/Country" class="sapUiTinyMarginEnd" width="auto" vAlign="Middle"/>
+                        <Text text="{context>/orderNumber}" class="sapUiTinyMarginBegin" width="auto" textAlign="Center"/>
+                    </HBox>
+                    
+                    <HBox >
+                        <Label text="Pharma Mfg Location" class="sapUiTinyMarginEnd" width="auto" vAlign="Middle"/>
+                        <Text text="{context>/orderNumber}" class="sapUiTinyMarginBegin" width="auto" textAlign="Center"/>
+                    </HBox>
+
+                    <HBox >
+                        <Label text="Vendor" class="sapUiTinyMarginEnd" width="auto" vAlign="Middle"/>
+                        <Text text="{context>/orderNumber}" class="sapUiTinyMarginBegin" width="auto" textAlign="Center"/>
+                    </HBox>
+
+                    <HBox >
+                        <Label text="Others" class="sapUiTinyMarginEnd" width="auto" vAlign="Middle"/>
+                        <Text text="{context>/orderNumber}" class="sapUiTinyMarginBegin" width="auto" textAlign="Center"/>
+                    </HBox>
+            </l:Grid>
+        <html:hr></html:hr>
+        <l:Grid
+                defaultSpan="XL2 L2 M2 S12"
+                hSpacing="1"
+                vSpacing="1">
+
+                <HBox  >
+                    <Label text="User Remarks" class="sapUiTinyMarginEnd" width="auto" vAlign="Middle"/>
+                    <Text text="{context>/customerName}" class="sapUiTinyMarginBegin" width="auto" textAlign="Center"/>
+                </HBox>
+        </l:Grid>
+        <html:hr></html:hr>
+        <l:Grid
+                defaultSpan="XL2 L2 M2 S12"
+                hSpacing="1"
+                vSpacing="1">
+
+                <HBox  alignItems="Center">
+                    <Label text="Send for Approval" class="sapUiTinyMarginEnd" width="auto" vAlign="Middle"/>
+                    <Select width="auto">
+                        <items>
+                            <core:Item key="app1" text="Approver 1"></core:Item>
+                            <core:Item key="app2" text="Approver 2"></core:Item>
+                            <core:Item key="app3" text="Approver 3"></core:Item>
+                        </items>
+                    </Select>
+                </HBox>
+        </l:Grid>
+        <html:hr></html:hr>
+        <l:Grid
+                defaultSpan="XL2 L2 M2 S12"
+                hSpacing="1"
+                vSpacing="1">
+
+                <HBox alignItems="Center">
+                    <Label text="Comments/Remarks" class="sapUiTinyMarginEnd" width="auto" vAlign="Middle"/>
+                    <TextArea value="{context>/comment}" class="sapUiTinyMarginBegin" width="600px" height="auto"/>
+                </HBox>
+        </l:Grid>
+                </IconTabFilter>
+            </items>
+        </IconTabBar>
+        </content>
+    </Page>
+</mvc:View>

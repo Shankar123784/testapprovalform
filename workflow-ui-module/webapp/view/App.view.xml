@@ -1,0 +1,889 @@
+<mvc:View xmlns:uxap="sap.uxap" controllerName="workflowuimodule.controller.App"
+    xmlns:html="http://www.w3.org/1999/xhtml"
+    xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+    xmlns:l="sap.ui.layout"
+    xmlns:f="sap.ui.layout.form"
+    xmlns:core="sap.ui.core"
+    xmlns:t="sap.ui.table"
+    xmlns:smartForm="sap.ui.comp.smartform"
+    xmlns:smartField="sap.ui.comp.smartfield"
+    xmlns="sap.m">
+    <App id="app">
+        <!-- <Page id = "scroll_1" showHeader="false">
+        <content> -->
+            <!-- <l:Grid
+                defaultSpan="XL2 L2 M2 S12"
+                hSpacing="0.5"
+                vSpacing="1" class="sapUiResponsiveMargin">
+
+                <HBox class="sapUiNoMargin sapUiTinyPadding" >
+                    <Label text="MDR No"  labelFor="mdrNo" vAlign="Middle"/>
+                    <Text id="mdrNo_1" text="{context>/customerName}"  width="150px" textAlign="Center" />
+                </HBox>
+                
+                <HBox  class="sapUiNoMargin sapUiTinyPadding">
+                    <Label text="MDR Date"  vAlign="Middle"/>
+                    <Text text="{context>/orderNumber}"  width="150px" textAlign="Center"/>
+                </HBox>
+                
+                <HBox  class="sapUiNoMargin sapUiTinyPadding">
+                    <Label text="MDN Type" class="sapUiTinyMarginEnd"  vAlign="Middle"/>
+                    <Text text="{context>/orderDate}"  width="250px" textAlign="Center"/>
+                </HBox>
+                
+                <HBox  class="sapUiNoMargin sapUiTinyPadding">
+                    <Label text="Total Value of MDN"   vAlign="Middle"/>
+                    <Text text="{context>/expectedDate}"  width="150px" textAlign="Center"/>
+                </HBox>
+                
+                <HBox  class="sapUiNoMargin sapUiTinyPadding">
+                    <Label text="Purchase Value"   vAlign="Middle"/>
+                    <Text text="{context>/orderAmount}"  width="150px" textAlign="Center"/>
+                </HBox>
+
+            </l:Grid> -->
+            <!-- <html:hr></html:hr>
+            <l:Grid
+                defaultSpan="XL2 L2 M2 S12"
+                hSpacing="1"
+                vSpacing="1">
+                
+                <HBox  >
+                    <Label text="Reason for Obselence" class="sapUiTinyMarginEnd" width="auto" vAlign="Middle"/>
+                    <Text text="{context>/orderNumber}" class="sapUiTinyMarginBegin" width="auto" textAlign="Center"/>
+                </HBox>
+            </l:Grid>
+            <l:Grid
+                defaultSpan="XL2 L2 M2 S12"
+                hSpacing="1"
+                vSpacing="1">
+                
+                <HBox  >
+                    <Label text="Other" class="sapUiTinyMarginEnd" width="auto" vAlign="Middle"/>
+                    <Text text="{context>/orderNumber}" class="sapUiTinyMarginBegin" width="auto" textAlign="Center"/>
+                </HBox>
+            </l:Grid>
+
+        <html:hr></html:hr>
+            <l:Grid
+                defaultSpan="XL2 L2 M2 S12"
+                hSpacing="1"
+                vSpacing="1">
+
+                <HBox >
+                    <Label text="Loss Brone By" class="sapUiTinyMarginEnd" width="auto" vAlign="Middle"/>
+                    <Text text="{context>/customerName}" class="sapUiTinyMarginBegin" width="auto" textAlign="Center"/>
+                </HBox>
+            </l:Grid>
+            <l:Grid defaultSpan="XL2 L2 M2 S12"
+                hSpacing="1"
+                vSpacing="1">
+                    <HBox >
+                        <Label text="Market/Country" class="sapUiTinyMarginEnd" width="auto" vAlign="Middle"/>
+                        <Text text="{context>/orderNumber}" class="sapUiTinyMarginBegin" width="auto" textAlign="Center"/>
+                    </HBox>
+                    
+                    <HBox >
+                        <Label text="Pharma Mfg Location" class="sapUiTinyMarginEnd" width="auto" vAlign="Middle"/>
+                        <Text text="{context>/orderNumber}" class="sapUiTinyMarginBegin" width="auto" textAlign="Center"/>
+                    </HBox>
+
+                    <HBox >
+                        <Label text="Vendor" class="sapUiTinyMarginEnd" width="auto" vAlign="Middle"/>
+                        <Text text="{context>/orderNumber}" class="sapUiTinyMarginBegin" width="auto" textAlign="Center"/>
+                    </HBox>
+
+                    <HBox >
+                        <Label text="Others" class="sapUiTinyMarginEnd" width="auto" vAlign="Middle"/>
+                        <Text text="{context>/orderNumber}" class="sapUiTinyMarginBegin" width="auto" textAlign="Center"/>
+                    </HBox>
+            </l:Grid>
+        <html:hr></html:hr>
+        <l:Grid
+                defaultSpan="XL2 L2 M2 S12"
+                hSpacing="1"
+                vSpacing="1">
+
+                <HBox  >
+                    <Label text="User Remarks" class="sapUiTinyMarginEnd" width="auto" vAlign="Middle"/>
+                    <Text text="{context>/customerName}" class="sapUiTinyMarginBegin" width="auto" textAlign="Center"/>
+                </HBox>
+        </l:Grid>
+        <html:hr></html:hr>
+        <l:Grid
+                defaultSpan="XL2 L2 M2 S12"
+                hSpacing="1"
+                vSpacing="1">
+
+                <HBox  alignItems="Center">
+                    <Label text="Send for Approval" class="sapUiTinyMarginEnd" width="auto" vAlign="Middle"/>
+                    <Select width="auto">
+                        <items>
+                            <core:Item key="app1" text="Approver 1"></core:Item>
+                            <core:Item key="app2" text="Approver 2"></core:Item>
+                            <core:Item key="app3" text="Approver 3"></core:Item>
+                        </items>
+                    </Select>
+                </HBox>
+        </l:Grid>
+        <html:hr></html:hr>
+        <l:Grid
+                defaultSpan="XL2 L2 M2 S12"
+                hSpacing="1"
+                vSpacing="1">
+
+                <HBox alignItems="Center">
+                    <Label text="Comments/Remarks" class="sapUiTinyMarginEnd" width="auto" vAlign="Middle"/>
+                    <TextArea value="{context>/comment}" class="sapUiTinyMarginBegin" width="600px" height="150px"/>
+                </HBox>
+        </l:Grid> -->
+        <!-- <IconTabBar >
+            <items>
+                <IconTabFilter icon="sap-icon://process">
+                    <l:Grid
+                        defaultSpan="XL2 L2 M2 S12"
+                        hSpacing="1"
+                        vSpacing="1" width="auto" class="sapUiResponsiveMargin">
+                        
+                        <HBox>
+                            <Label text="Reason for Obselence" class="sapUiTinyMarginEnd" width="auto" vAlign="Middle"/>
+                            <Text text="{context>/orderNumber}" class="sapUiTinyMarginBegin" width="auto" textAlign="Center"/>
+                        </HBox>
+                    </l:Grid>
+                    <l:Grid
+                        defaultSpan="XL2 L2 M2 S12"
+                        hSpacing="1"
+                        vSpacing="1" width="auto">
+                        
+                        <HBox  >
+                            <Label text="Other" class="sapUiTinyMarginEnd" width="auto" vAlign="Middle"/>
+                            <Text text="{context>/orderNumber}" class="sapUiTinyMarginBegin" width="auto" textAlign="Center"/>
+                        </HBox>
+                    </l:Grid>
+
+                    <html:hr></html:hr>
+                    <l:Grid
+                        defaultSpan="XL2 L2 M2 S12"
+                        hSpacing="1"
+                        vSpacing="1">
+
+                        <HBox >
+                            <Label text="Loss Brone By" class="sapUiTinyMarginEnd" width="auto" vAlign="Middle"/>
+                            <Text text="{context>/customerName}" class="sapUiTinyMarginBegin" width="auto" textAlign="Center"/>
+                        </HBox>
+                    </l:Grid>
+                    <l:Grid defaultSpan="XL2 L2 M2 S12"
+                        hSpacing="1"
+                        vSpacing="1">
+                            <HBox >
+                                <Label text="Market/Country" class="sapUiTinyMarginEnd" width="auto" vAlign="Middle"/>
+                                <Text text="{context>/orderNumber}" class="sapUiTinyMarginBegin" width="auto" textAlign="Center"/>
+                            </HBox>
+                            
+                            <HBox >
+                                <Label text="Pharma Mfg Location" class="sapUiTinyMarginEnd" width="auto" vAlign="Middle"/>
+                                <Text text="{context>/orderNumber}" class="sapUiTinyMarginBegin" width="auto" textAlign="Center"/>
+                            </HBox>
+
+                            <HBox >
+                                <Label text="Vendor" class="sapUiTinyMarginEnd" width="auto" vAlign="Middle"/>
+                                <Text text="{context>/orderNumber}" class="sapUiTinyMarginBegin" width="auto" textAlign="Center"/>
+                            </HBox>
+
+                            <HBox >
+                                <Label text="Others" class="sapUiTinyMarginEnd" width="auto" vAlign="Middle"/>
+                                <Text text="{context>/orderNumber}" class="sapUiTinyMarginBegin" width="auto" textAlign="Center"/>
+                            </HBox>
+                    </l:Grid>
+                    <html:hr></html:hr>
+                    <l:Grid
+                            defaultSpan="XL2 L2 M2 S12"
+                            hSpacing="1"
+                            vSpacing="1">
+
+                            <HBox  >
+                                <Label text="User Remarks" class="sapUiTinyMarginEnd" width="auto" vAlign="Middle"/>
+                                <Text text="{context>/customerName}" class="sapUiTinyMarginBegin" width="auto" textAlign="Center"/>
+                            </HBox>
+                    </l:Grid>
+                    <html:hr></html:hr>
+                    <l:Grid
+                            defaultSpan="XL2 L2 M2 S12"
+                            hSpacing="1"
+                            vSpacing="1">
+
+                            <HBox  alignItems="Center">
+                                <Label text="Send for Approval" class="sapUiTinyMarginEnd" width="auto" vAlign="Middle"/>
+                                <Select width="auto">
+                                    <items>
+                                        <core:Item key="app1" text="Approver 1"></core:Item>
+                                        <core:Item key="app2" text="Approver 2"></core:Item>
+                                        <core:Item key="app3" text="Approver 3"></core:Item>
+                                    </items>
+                                </Select>
+                            </HBox>
+                    </l:Grid>
+                    <html:hr></html:hr>
+                    <l:Grid
+                            defaultSpan="XL2 L2 M2 S12"
+                            hSpacing="1"
+                            vSpacing="1">
+
+                            <HBox alignItems="Center">
+                                <Label text="Comments/Remarks" class="sapUiTinyMarginEnd" width="auto" vAlign="Middle"/>
+                                <TextArea value="{context>/comment}" class="sapUiTinyMarginBegin" width="600px" height="auto"/>
+                            </HBox>
+                    </l:Grid>
+                </IconTabFilter>
+            </items>
+        </IconTabBar> -->
+        <!-- <VBox class="sapUiSmallMargin">
+            <f:SimpleForm id="SimpleFormDisplay354"
+                editable="false"
+                layout="ResponsiveGridLayout"
+                title="Address"
+                labelSpanXL="3"
+                labelSpanL="3"
+                labelSpanM="3"
+                labelSpanS="12"
+                adjustLabelSpan="false"
+                emptySpanXL="4"
+                emptySpanL="4"
+                emptySpanM="4"
+                emptySpanS="0"
+                columnsXL="1"
+                columnsL="1"
+                columnsM="1"
+                singleContainerFullSize="false" >
+                <f:content>
+                    <Label text="Customer Name" />
+                    <Text id="nameText" text="{context>/customerName}" />
+                    <Label text="Expected Delivery Date" />
+                    <Text text="{context>/expectedDeliveryDate}" />
+                    <Label text="Order Amount" />
+                    <Text text="{context>/orderAmount}" />
+                    <Label text="Order Date" />
+                    <Text id="countryText" text="{context>/orderDate}" />
+                    <Label text="Order Number" />
+                    <Text id="ordNo" text="{context>/orderNumber}" />
+                    <Label text="Shipping Country" />
+                    <Text id="shippingCountry" text="{context>/shippingCountry}" />
+                    <Label text="Comments"></Label>
+                    <TextArea value="{context>/comment}"></TextArea>
+                </f:content>
+            </f:SimpleForm>
+            <f:Form id="FormDisplay480_12120Dual"
+                editable="false" >
+                <f:title>
+                    <core:Title text="Address" />
+                </f:title>
+                <f:layout>
+                    <f:ResponsiveGridLayout
+                        labelSpanXL="4"
+                        labelSpanL="4"
+                        labelSpanM="12"
+                        labelSpanS="12"
+                        adjustLabelSpan="false"
+                        emptySpanXL="0"
+                        emptySpanL="0"
+                        emptySpanM="0"
+                        emptySpanS="0"
+                        columnsXL="2"
+                        columnsL="2"
+                        columnsM="2"
+                        singleContainerFullSize="false" />
+                </f:layout>
+                <f:formContainers>
+                    <f:FormContainer >
+                        <f:formElements>
+                            <f:FormElement label="MDN Number">
+                                <f:fields>
+                                    <Text id="nameText" text="{context>/customerName}" />
+                                </f:fields>
+                            </f:FormElement>
+                            <f:FormElement label="MDN Date">
+                                <f:fields>
+                                    <Text text="{context>/expectedDeliveryDate}" />
+                                </f:fields>
+                            </f:FormElement>
+                            <f:FormElement label="MDN Type">
+                                <f:fields>
+                                    <Text text="{context>/orderAmount}" />
+                                </f:fields>
+                            </f:FormElement>
+                            <f:FormElement label="Total Value of MDN(INR/USD)">
+                                <f:fields>
+                                    <Text text="{context>/orderAmount}" id="countryText" />
+                                </f:fields>
+                            </f:FormElement>
+                        </f:formElements>
+                    </f:FormContainer>
+                    <f:FormContainer >
+                        <f:formElements>
+                            <f:FormElement label="Reason for Obsolescence">
+                                <f:fields>
+                                    <Text text="{context>/orderAmount}" />
+                                </f:fields>
+                            </f:FormElement>
+                            <f:FormElement label="Others">
+                                <f:fields>
+                                    <Text text="{context>/orderAmount}" />
+                                </f:fields>
+                            </f:FormElement>
+                            <f:FormElement label="Loss Brone By">
+                                <f:fields>
+                                    <Text text="{context>/orderAmount}" />
+                                </f:fields>
+                            </f:FormElement>
+                            <f:FormElement label="Market/Country">
+                                <f:fields>
+                                    <Text text="{context>/orderAmount}" />
+                                </f:fields>
+                            </f:FormElement>
+                            <f:FormElement label="Pharma Mfg Location">
+                                <f:fields>
+                                    <Text text="{context>/orderAmount}" />
+                                </f:fields>
+                            </f:FormElement>
+                            <f:FormElement label="Vendor">
+                                <f:fields>
+                                    <Text text="{context>/orderAmount}" />
+                                </f:fields>
+                            </f:FormElement>
+                            <f:FormElement label="Others">
+                                <f:fields>
+                                    <Text text="{context>/orderAmount}" />
+                                </f:fields>
+                            </f:FormElement>
+                        </f:formElements>
+                    </f:FormContainer>
+                    <f:FormContainer >
+                        <f:formElements>
+                            <f:FormElement label="Reason for Obsolescence">
+                                <f:fields>
+                                    <Text text="{context>/orderAmount}" />
+                                </f:fields>
+                            </f:FormElement>
+                            <f:FormElement label="Others">
+                                <f:fields>
+                                    <Text text="{context>/orderAmount}" />
+                                </f:fields>
+                            </f:FormElement>
+                            <f:FormElement label="Loss Brone By">
+                                <f:fields>
+                                    <Text text="{context>/orderAmount}" />
+                                </f:fields>
+                            </f:FormElement>
+                            <f:FormElement label="Market/Country">
+                                <f:fields>
+                                    <Text text="{context>/orderAmount}" />
+                                </f:fields>
+                            </f:FormElement>
+                            <f:FormElement label="Pharma Mfg Location">
+                                <f:fields>
+                                    <Text text="{context>/orderAmount}" />
+                                </f:fields>
+                            </f:FormElement>
+                            <f:FormElement label="Vendor">
+                                <f:fields>
+                                    <Text text="{context>/orderAmount}" />
+                                </f:fields>
+                            </f:FormElement>
+                            <f:FormElement label="Others">
+                                <f:fields>
+                                    <Text text="{context>/orderAmount}" />
+                                </f:fields>
+                            </f:FormElement>
+                        </f:formElements>
+                    </f:FormContainer>
+                </f:formContainers>
+            </f:Form>
+        </VBox> -->
+            <!-- <Panel width="auto" class="sapUiSmallMargin" accessibleRole="Region">
+                <content>
+                    <VBox >
+                        <HBox justifyContent="SpaceBetween" wrap="Wrap" class="inputContainer">
+                            <VBox width="23%">
+                                <Label text="MDN No"></Label>
+                                <Text text="4364654775"/>
+                            </VBox>
+                            <VBox width="23%">
+                                <Label text="MDN Date" required="true" class="sapUiTinyMarginBottom"/>
+                                <Text text="2025-02-23"/>
+                            </VBox>
+                            <VBox width="23%">
+                                <Label text="MDN Type" required="true" class="sapUiTinyMarginBottom"/>
+                                <Text text="Others"/>
+                            </VBox>
+                            <VBox width="23%">
+                                <Label text="Total Value of MDN(INR/USD)" required="true" class="sapUiTinyMarginBottom"/>
+                                <Text text="57432"/>
+                            </VBox>
+                        </HBox>
+                    </VBox>
+                </content>
+            </Panel>
+            <Panel width="auto" class="sapUiSmallMargin" accessibleRole="Region">
+                <content>
+                    <VBox >
+                        <HBox justifyContent="SpaceBetween" wrap="Wrap" class="inputContainer">
+                            <VBox >
+                                <Label text="Reason for Obsolescence"></Label>
+                                <Text text="Material under Insurance Claim, Pharmacopeial Change, Others"/>
+                            </VBox>
+                        </HBox>
+                    </VBox>
+                    <VBox >
+                        <HBox justifyContent="SpaceBetween" wrap="Wrap" class="inputContainer">
+                            <VBox >
+                                <Label text="Others"></Label>
+                                <Text text="Testing or Demo"/>
+                            </VBox>
+                        </HBox>
+                    </VBox>
+                </content>
+            </Panel>
+            <Panel width="auto" class="sapUiSmallMargin" accessibleRole="Region">
+                <content>
+                    <VBox >
+                        <HBox justifyContent="SpaceBetween" wrap="Wrap" class="inputContainer">
+                            <VBox >
+                                <Label text="Loss Brone By"></Label>
+                                <Text text="India Business, API"/>
+                            </VBox>
+                        </HBox>
+                    </VBox>
+                    <VBox >
+                        <HBox justifyContent="SpaceBetween" wrap="Wrap" class="inputContainer">
+                            <VBox width="23%">
+                                <Label text="Market/Country"></Label>
+                                <Text text="INDIA"/>
+                            </VBox>
+                            <VBox width="23%">
+                                <Label text="Pharma Mfg Location" required="true" class="sapUiTinyMarginBottom"/>
+                                <Text text="Dewas"/>
+                            </VBox>
+                            <VBox width="23%">
+                                <Label text="Vendor" required="true" class="sapUiTinyMarginBottom"/>
+                                <Text text="Dewas"/>
+                            </VBox>
+                            <VBox width="23%">
+                                <Label text="Others" required="true" class="sapUiTinyMarginBottom"/>
+                                <Text text="Test"/>
+                            </VBox>
+                        </HBox>
+                    </VBox>
+                </content>
+            </Panel>
+            <Panel width="auto" class="sapUiSmallMargin" accessibleRole="Region">
+                <content>
+                    <VBox >
+                        <HBox justifyContent="SpaceBetween" wrap="Wrap" class="inputContainer">
+                            <VBox >
+                                <Label text="User Remarks"></Label>
+                                <Text text="MDN Demonstration"/>
+                            </VBox>
+                        </HBox>
+                    </VBox>
+                </content>
+            </Panel>
+            <Panel width="auto" class="sapUiSmallMargin" accessibleRole="Region">
+                <content>
+                    <VBox >
+                        <HBox justifyContent="SpaceBetween" wrap="Wrap" class="inputContainer">
+                            <VBox width="48%">
+                                <Label text="Send Approval"></Label>
+                                <ComboBox ></ComboBox>
+                            </VBox>
+                            <VBox width="48%">
+                                <Label text="Location Code"></Label>
+                                <Text text="2000:Dewas"></Text>
+                            </VBox>
+                        </HBox>
+                    </VBox>
+                </content>
+            </Panel>
+            <Panel width="auto" class="sapUiSmallMargin" accessibleRole="Region">
+                <content>
+                    <VBox >
+                        <HBox justifyContent="SpaceBetween" wrap="Wrap" class="inputContainer">
+                            <VBox width="100%">
+                                <Label text="Comments/Remarks"></Label>
+                                <TextArea rows="1"></TextArea>
+                            </VBox>
+                        </HBox>
+                    </VBox>
+                </content>
+            </Panel> -->
+
+            <!-- Using Icon Tab Filter Implementation -->
+            <!-- <Panel width="auto" class="sapUiSmallMargin" accessibleRole="Region">
+                <content>
+                    <VBox>
+                        <HBox justifyContent="SpaceBetween" wrap="Wrap" class="inputContainer">
+                            <VBox width="23%">
+                                <Label text="MDN No"></Label>
+                                <Text text="4364654775"/>
+                            </VBox>
+                            <VBox width="23%">
+                                <Label text="MDN Date" required="true" class="sapUiTinyMarginBottom"/>
+                                <Text text="2025-02-23"/>
+                            </VBox>
+                            <VBox width="23%">
+                                <Label text="MDN Type" required="true" class="sapUiTinyMarginBottom"/>
+                                <Text text="Others"/>
+                            </VBox>
+                            <VBox width="23%">
+                                <Label text="Total Value of MDN(INR/USD)" required="true" class="sapUiTinyMarginBottom"/>
+                                <Text text="57432"/>
+                            </VBox>
+                        </HBox>
+                    </VBox>
+                </content>
+            </Panel> -->
+
+<!-- IconTabBar implementation for the rest of the panels -->
+            <!-- <IconTabBar class="sapUiSmallMargin" expandable="false" >
+                <items>
+                    
+                    <IconTabFilter icon="sap-icon://hint" text="Reason" key="reason">
+                        <VBox>
+                            <HBox justifyContent="SpaceBetween" wrap="Wrap" class="inputContainer">
+                                <VBox>
+                                    <Label text="Reason for Obsolescence"></Label>
+                                    <Text text="Material under Insurance Claim, Pharmacopeial Change, Others"/>
+                                </VBox>
+                            </HBox>
+                            <HBox justifyContent="SpaceBetween" wrap="Wrap" class="inputContainer sapUiSmallMarginTop">
+                                <VBox>
+                                    <Label text="Others"></Label>
+                                    <Text text="Testing or Demo"/>
+                                </VBox>
+                            </HBox>
+                        </VBox>
+                        <VBox>
+                            <HBox justifyContent="SpaceBetween" wrap="Wrap" class="inputContainer">
+                                <VBox>
+                                    <Label text="Reason for Obsolescence"></Label>
+                                    <Text text="Material under Insurance Claim, Pharmacopeial Change, Others"/>
+                                </VBox>
+                            </HBox>
+                            <HBox justifyContent="SpaceBetween" wrap="Wrap" class="inputContainer sapUiSmallMarginTop">
+                                <VBox>
+                                    <Label text="Others"></Label>
+                                    <Text text="Testing or Demo"/>
+                                </VBox>
+                            </HBox>
+                        </VBox>
+                        <VBox>
+                            <HBox justifyContent="SpaceBetween" wrap="Wrap" class="inputContainer">
+                                <VBox>
+                                    <Label text="Reason for Obsolescence"></Label>
+                                    <Text text="Material under Insurance Claim, Pharmacopeial Change, Others"/>
+                                </VBox>
+                            </HBox>
+                            <HBox justifyContent="SpaceBetween" wrap="Wrap" class="inputContainer sapUiSmallMarginTop">
+                                <VBox>
+                                    <Label text="Others"></Label>
+                                    <Text text="Testing or Demo"/>
+                                </VBox>
+                            </HBox>
+                        </VBox>
+                        <VBox>
+                            <HBox justifyContent="SpaceBetween" wrap="Wrap" class="inputContainer">
+                                <VBox>
+                                    <Label text="Reason for Obsolescence"></Label>
+                                    <Text text="Material under Insurance Claim, Pharmacopeial Change, Others"/>
+                                </VBox>
+                            </HBox>
+                            <HBox justifyContent="SpaceBetween" wrap="Wrap" class="inputContainer sapUiSmallMarginTop">
+                                <VBox>
+                                    <Label text="Others"></Label>
+                                    <Text text="Testing or Demo"/>
+                                </VBox>
+                            </HBox>
+                        </VBox>
+                        <VBox>
+                            <HBox justifyContent="SpaceBetween" wrap="Wrap" class="inputContainer">
+                                <VBox>
+                                    <Label text="Reason for Obsolescence"></Label>
+                                    <Text text="Material under Insurance Claim, Pharmacopeial Change, Others"/>
+                                </VBox>
+                            </HBox>
+                            <HBox justifyContent="SpaceBetween" wrap="Wrap" class="inputContainer sapUiSmallMarginTop">
+                                <VBox>
+                                    <Label text="Others"></Label>
+                                    <Text text="Testing or Demo"/>
+                                </VBox>
+                            </HBox>
+                        </VBox>
+                    </IconTabFilter>
+                    <IconTabFilter icon="sap-icon://business-card" text="Business Details" key="business">
+                        <VBox>
+                            <HBox justifyContent="SpaceBetween" wrap="Wrap" class="inputContainer">
+                                <VBox>
+                                    <Label text="Loss Brone By"></Label>
+                                    <Text text="India Business, API"/>
+                                </VBox>
+                            </HBox>
+                            <HBox justifyContent="SpaceBetween" wrap="Wrap" class="inputContainer sapUiSmallMarginTop">
+                                <VBox width="23%">
+                                    <Label text="Market/Country"></Label>
+                                    <Text text="INDIA"/>
+                                </VBox>
+                                <VBox width="23%">
+                                    <Label text="Pharma Mfg Location" required="true" class="sapUiTinyMarginBottom"/>
+                                    <Text text="Dewas"/>
+                                </VBox>
+                                <VBox width="23%">
+                                    <Label text="Vendor" required="true" class="sapUiTinyMarginBottom"/>
+                                    <Text text="Dewas"/>
+                                </VBox>
+                                <VBox width="23%">
+                                    <Label text="Others" required="true" class="sapUiTinyMarginBottom"/>
+                                    <Text text="Test"/>
+                                </VBox>
+                            </HBox>
+                        </VBox>
+                    </IconTabFilter>
+                    <IconTabFilter icon="sap-icon://notes" text="Remarks" key="remarks">
+                        <VBox>
+                            <HBox justifyContent="SpaceBetween" wrap="Wrap" class="inputContainer">
+                                <VBox>
+                                    <Label text="User Remarks"></Label>
+                                    <Text text="MDN Demonstration"/>
+                                </VBox>
+                            </HBox>
+                        </VBox>
+                    </IconTabFilter>
+                    <IconTabFilter icon="sap-icon://approvals" text="Approval" key="approval">
+                        <VBox>
+                            <HBox justifyContent="SpaceBetween" wrap="Wrap" class="inputContainer">
+                                <VBox width="48%">
+                                    <Label text="Send Approval"></Label>
+                                    <ComboBox width="100%"></ComboBox>
+                                </VBox>
+                                <VBox width="48%">
+                                    <Label text="Location Code"></Label>
+                                    <Text text="2000:Dewas"></Text>
+                                </VBox>
+                            </HBox>
+                            <HBox justifyContent="SpaceBetween" wrap="Wrap" class="inputContainer sapUiSmallMarginTop">
+                                <VBox width="100%">
+                                    <Label text="Comments/Remarks"></Label>
+                                    <TextArea rows="3" width="100%"></TextArea>
+                                </VBox>
+                            </HBox>
+                        </VBox>
+                    </IconTabFilter>
+                </items>
+            </IconTabBar> -->
+        <!-- </content>
+    </Page> -->
+        <uxap:ObjectPageLayout upperCaseAnchorBar="false">
+            <uxap:headerContent>
+                <Panel width="auto" class="sapUiSmallMargin" accessibleRole="Region">
+                <content>
+                        <HBox justifyContent="SpaceBetween" wrap="Wrap" class="inputContainer">
+                            <VBox width="auto" class="sapUiSmallMarginBeginEnd">
+                                <ObjectStatus title="MDN No" text="4364654775"></ObjectStatus>
+                                <!-- <Label text="MDN No"></Label>
+                                <Text text="4364654775"/> -->
+                            </VBox>
+                            <VBox width="auto" class="sapUiSmallMarginBeginEnd">
+                                
+                                <ObjectStatus title="MDN Date" text="2025-02-23"></ObjectStatus>
+                                <!-- <Label text="MDN Date" required="true" class="sapUiTinyMarginBottom"/>
+                                <Text text="2025-02-23"/> -->
+                            </VBox>
+                            <VBox width="auto" class="sapUiSmallMarginBeginEnd">
+                                <ObjectStatus title="MDN Type" text="Others, Others, Others"> </ObjectStatus>
+                                <!-- <Label text="MDN Type" required="true" class="sapUiTinyMarginBottom"/>
+                                <Text text="Others"/> -->
+                            </VBox>
+                            <VBox width="auto" class="sapUiSmallMarginBeginEnd">
+                                <ObjectStatus title="Total Value of MDN(INR/USD)" text="57432"> </ObjectStatus>
+                                <!-- <Label text="Total Value of MDN(INR/USD)" required="true" class="sapUiTinyMarginBottom"/>
+                                <Text text="57432"/> -->
+                            </VBox>
+                        </HBox>
+                </content>
+            </Panel>
+            </uxap:headerContent>
+            <uxap:sections>
+                <uxap:ObjectPageSection title="General Details" titleUppercase="false">
+                    <uxap:subSections>
+                        <uxap:ObjectPageSubSection >
+                            <VBox>
+                                <HBox justifyContent="SpaceBetween" wrap="Wrap" class="inputContainer">
+                                    <VBox>
+                                        <Label text="Reason for Obsolescence"></Label>
+                                        <Text text="Material under Insurance Claim, Pharmacopeial Change, Others"/>
+                                    </VBox>
+                                </HBox>
+                                <HBox justifyContent="SpaceBetween" wrap="Wrap" class="inputContainer sapUiSmallMarginTop">
+                                    <VBox>
+                                        <Label text="Others"></Label>
+                                        <Text text="Testing or Demo"/>
+                                    </VBox>
+                                </HBox>
+                                <HBox justifyContent="SpaceBetween" wrap="Wrap" class="inputContainer">
+                                    <VBox>
+                                        <Label text="Loss Brone By"></Label>
+                                        <Text text="India Business, API"/>
+                                    </VBox>
+                                </HBox>
+                                <HBox justifyContent="SpaceBetween" wrap="Wrap" class="inputContainer sapUiSmallMarginTop">
+                                    <VBox width="23%">
+                                        <Label text="Market/Country"></Label>
+                                        <Text text="INDIA"/>
+                                    </VBox>
+                                    <VBox width="23%">
+                                        <Label text="Pharma Mfg Location" required="true" class="sapUiTinyMarginBottom"/>
+                                        <Text text="Dewas"/>
+                                    </VBox>
+                                    <VBox width="23%">
+                                        <Label text="Vendor" required="true" class="sapUiTinyMarginBottom"/>
+                                        <Text text="Dewas"/>
+                                    </VBox>
+                                    <VBox width="23%">
+                                        <Label text="Others" required="true" class="sapUiTinyMarginBottom"/>
+                                        <Text text="Test"/>
+                                    </VBox>
+                                </HBox>
+                            </VBox>
+                        </uxap:ObjectPageSubSection>
+                    </uxap:subSections>
+                </uxap:ObjectPageSection>
+                <uxap:ObjectPageSection title="Material Details" titleUppercase="false">
+                    <uxap:subSections>
+                        <uxap:ObjectPageSubSection >
+                            <t:Table id="materialTable"
+                                    rows="{LocalModel>/Materials}"
+                                    selectionMode="None"
+                                    ariaLabelledBy="title"
+                                    >
+                                    <t:extension>
+                                        <OverflowToolbar>
+                                            <Title id="title" text="Material " titleStyle="H6"/>
+                                            
+                                        </OverflowToolbar>
+                                    </t:extension>
+                                    <t:columns>
+                                        <!-- <t:Column width="100px">
+                                            <t:label><Label text="Session No."/></t:label>
+                                            <t:template><Input value="{LocalModel>SessionNo}" editable="false"/></t:template>
+                                        </t:Column> -->
+                                        <t:Column width="120px">
+                                            <t:label><Label text="Material Code"/></t:label>
+                                            <t:template><Input value="{LocalModel>materialCode}" editable="false"/></t:template>
+                                        </t:Column>
+                                        <t:Column width="200px">
+                                            <t:label><Label text="Description"/></t:label>
+                                            <t:template><Input value="{LocalModel>materialDescp}" editable="false"/></t:template>
+                                        </t:Column>
+                                        <t:Column width="100px">
+                                            <t:label><Label text="Batch No."/></t:label>
+                                            <t:template><Input value="{LocalModel>batchNo}" editable="false"/></t:template>
+                                        </t:Column>
+                                        <t:Column width="100px">
+                                            <t:label><Label text="Storage Loc."/></t:label>
+                                            <t:template><Input value="{LocalModel>storageLoc}" editable="false"/></t:template>
+                                        </t:Column>
+                                        <t:Column width="80px">
+                                            <t:label><Label text="QTY"/></t:label>
+                                            <t:template><Input value="{LocalModel>qty}" editable="false"/></t:template>
+                                        </t:Column>
+                                        <t:Column width="100px">
+                                            <t:label><Label text="Uom"/></t:label>
+                                            <t:template><Select selectedKey="{LocalModel>uom}" editable="false"/></t:template>
+                                        </t:Column>
+                                        <t:Column width="100px">
+                                            <t:label><Label text="PUR Value"/></t:label>
+                                            <t:template><Input value="{LocalModel>purValue}" editable="false"/></t:template>
+                                        </t:Column>
+                                        <t:Column width="100px">
+                                            <t:label><Label text="Excise Duty"/></t:label>
+                                            <t:template><Input value="{LocalModel>exciseDuty}" editable="false"/></t:template>
+                                        </t:Column>
+                                        <t:Column width="110px">
+                                            <t:label><Label text="Salvage Value"/></t:label>
+                                            <t:template><Input value="{LocalModel>salvageValue}" editable="false"/></t:template>
+                                        </t:Column>
+                                        <t:Column width="150px">
+                                            <t:label><Label text="Manufacturing Date"/></t:label>
+                                            <t:template><DatePicker value="{LocalModel>manufacturingDate}" editable="false"/></t:template>
+                                        </t:Column>
+                                        <t:Column width="120px">
+                                            <t:label><Label text="Expiry Date"/></t:label>
+                                            <t:template><DatePicker value="{LocalModel>ExpiryDate}" editable="false"/></t:template>
+                                        </t:Column>
+                                        <t:Column width="120px">
+                                            <t:label><Label text="Decl Date"/></t:label>
+                                            <t:template><DatePicker value="{LocalModel>DeclDate}" editable="false"/></t:template>
+                                        </t:Column>
+                                        <t:Column width="130px">
+                                            <t:label><Label text="Last Pur. Date"/></t:label>
+                                            <t:template><DatePicker value="{LocalModel>LastPurDate}" editable="false"/></t:template>
+                                        </t:Column>
+                                        <t:Column width="110px">
+                                            <t:label><Label text="Last Pur. Qty"/></t:label>
+                                            <t:template><Input value="{LocalModel>LastPurQty}" editable="false"/></t:template>
+                                        </t:Column>
+                                        <t:Column width="130px">
+                                            <t:label><Label text="Last Issue Date"/></t:label>
+                                            <t:template><DatePicker value="{LocalModel>LastIssueDate}" editable="false"/></t:template>
+                                        </t:Column>
+                                        <t:Column width="110px">
+                                            <t:label><Label text="Last Issue Qty"/></t:label>
+                                            <t:template><Input value="{LocalModel>LastIssueQty}" editable="false"/></t:template>
+                                        </t:Column>
+                                        <t:Column width="70px" visible="false">
+                                            <t:label><Label text=""/></t:label>
+                                            <t:template>
+                                                <Button icon="sap-icon://delete" press=".onDeleteMaterialDetail"/>
+                                            </t:template>
+                                        </t:Column>
+                                    </t:columns>
+                                </t:Table>
+                        </uxap:ObjectPageSubSection>
+                    </uxap:subSections>
+                </uxap:ObjectPageSection>
+                <uxap:ObjectPageSection title="Attachments" titleUppercase="false">
+                    <uxap:subSections>
+                        <uxap:ObjectPageSubSection >
+                            <Table >
+                            
+                            </Table>
+                        </uxap:ObjectPageSubSection>
+                    </uxap:subSections>
+                </uxap:ObjectPageSection>
+                <uxap:ObjectPageSection title="Workflow" titleUppercase="false">
+                    <uxap:subSections>
+                        <uxap:ObjectPageSubSection >
+                            <VBox>
+                                <HBox justifyContent="SpaceBetween" wrap="Wrap" class="inputContainer">
+                                    <VBox width="48%">
+                                        <Label text="Send Approval"></Label>
+                                        <ComboBox width="100%"></ComboBox>
+                                    </VBox>
+                                    <VBox width="48%">
+                                        <Label text="Location Code"></Label>
+                                        <Text text="2000:Dewas"></Text>
+                                    </VBox>
+                                </HBox>
+                                <HBox justifyContent="SpaceBetween" wrap="Wrap" class="inputContainer sapUiSmallMarginTop">
+                                    <VBox width="100%">
+                                        <Label text="Comments/Remarks"></Label>
+                                        <TextArea rows="3" width="100%"></TextArea>
+                                    </VBox>
+                                </HBox>
+                            </VBox>
+                        </uxap:ObjectPageSubSection>
+                    </uxap:subSections>
+                </uxap:ObjectPageSection>
+                
+            </uxap:sections>
+        </uxap:ObjectPageLayout>
+    </App>
+</mvc:View>

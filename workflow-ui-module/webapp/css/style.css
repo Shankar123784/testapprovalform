@@ -1,0 +1,14 @@
+/* Enter your custom styles here */
+
+.sapMLabel {
+    color: var(--sapContent_LabelColor);
+    font-size: .875rem;
+    font-family: var(--sapFontFamily);
+    font-weight: normal;
+    display: inline-block;
+    white-space: nowrap;
+    cursor: text;
+    overflow: hidden;
+    box-sizing: border-box;
+    margin-top: auto;
+}

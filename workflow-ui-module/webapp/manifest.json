@@ -1,0 +1,209 @@
+{
+  "_version": "1.26.0",
+  "sap.app": {
+    "id": "workflowuimodule",
+    "type": "application",
+    "i18n": "i18n/i18n.properties",
+    "applicationVersion": {
+      "version": "0.0.1"
+    },
+    "title": "{{appTitle}}",
+    "description": "{{appDescription}}",
+    "resources": "resources.json",
+    "sourceTemplate": {
+      "id": "@sap/generator-fiori:basic",
+      "version": "1.8.4",
+      "toolsId": "1a9879dc-8d06-4fd8-8484-232de665f108"
+    },
+    "dataSources": {
+      "mainService": {
+        "uri": "/odata/v4/catalog/",
+        "type": "OData",
+        "settings": {
+          "annotations": [],
+          "localUri": "localService/mainService/metadata.xml",
+          "odataVersion": "4.0"
+        }
+      }
+    }
+  },
+  "sap.ui": {
+    "technology": "UI5",
+    "icons": {
+      "icon": "",
+      "favIcon": "",
+      "phone": "",
+      "phone@2": "",
+      "tablet": "",
+      "tablet@2": ""
+    },
+    "deviceTypes": {
+      "desktop": true,
+      "tablet": true,
+      "phone": true
+    }
+  },
+  "sap.ui5": {
+    "flexEnabled": false,
+    "dependencies": {
+      "minUI5Version": "1.82.2",
+      "libs": {
+        "sap.m": {},
+        "sap.ui.core": {},
+        "sap.f": {},
+        "sap.suite.ui.generic.template": {},
+        "sap.ui.comp": {},
+        "sap.ui.generic.app": {},
+        "sap.ui.table": {},
+        "sap.ushell": {}
+      }
+    },
+    "contentDensities": {
+      "compact": true,
+      "cozy": true
+    },
+    "models": {
+      "i18n": {
+        "type": "sap.ui.model.resource.ResourceModel",
+        "settings": {
+          "bundleName": "workflowuimodule.i18n.i18n"
+        }
+      },
+      "": {
+        "dataSource": "mainService",
+        "preload": true,
+        "settings": {
+          "synchronizationMode": "None",
+          "operationMode": "Server",
+          "autoExpandSelect": true,
+          "earlyRequests": true
+        }
+      },
+      "LocalModel": {
+        "type": "sap.ui.model.json.JSONModel",
+        "preload": false
+      }
+    },
+    "resources": {
+      "css": [
+        {
+          "uri": "css/style.css"
+        }
+      ]
+    },
+    "routing": {
+      "config": {
+        "routerClass": "sap.m.routing.Router",
+        "viewType": "XML",
+        "async": true,
+        "viewPath": "workflowuimodule.view",
+        "controlAggregation": "pages",
+        "controlId": "app",
+        "clearControlAggregation": false
+      },
+      "routes": [
+        {
+          "name": "RouteMyTaskUI",
+          "pattern": ":?query:",
+          "target": [
+            "TargetMyTaskUI"
+          ]
+        }
+      ],
+      "targets": {
+        "TargetMyTaskUI": {
+          "viewType": "XML",
+          "transition": "slide",
+          "clearControlAggregation": false,
+          "viewId": "MyTaskUI",
+          "viewName": "MyTaskUI"
+        }
+      }
+    },
+    "rootView": {
+      "viewName": "workflowuimodule.view.App",
+      "type": "XML",
+      "async": true,
+      "id": "App"
+    }
+  },
+  "sap.cloud": {
+    "public": true,
+    "service": "testapprovalform"
+  },
+  "sap.bpa.task": {
+    "_version": "1.0.0",
+    "outcomes": [
+      {
+        "id": "approve",
+        "label": "Approve"
+      },
+      {
+        "id": "reject",
+        "label": "Reject"
+      }
+    ],
+    "inputs": {
+      "$schema": "http://json-schema.org/draft-07/schema",
+      "title": "input",
+      "type": "object",
+      "required": [
+        "customerName",
+        "orderNumber",
+        "orderAmount",
+        "orderDate",
+        "expectedDeliveryDate",
+        "shippingCountry",
+        "tableData"
+      ],
+      "properties": {
+        "customerName": {
+          "type": "string",
+          "title": "Customer Name",
+          "description": "Customer Name"
+        },
+        "orderNumber": {
+          "type": "string",
+          "title": "Order Number",
+          "description": "Order Number"
+        },
+        "orderAmount": {
+          "type": "number",
+          "title": "Order Amount",
+          "description": "Order Amount"
+        },
+        "orderDate": {
+          "type": "string",
+          "title": "Order Date",
+          "description": "Order Date"
+        },
+        "expectedDeliveryDate": {
+          "type": "string",
+          "title": "Expected Delivery Date",
+          "description": "End Date of the Vacation"
+        },
+        "shippingCountry": {
+          "type": "string",
+          "title": "Shipping Country",
+          "description": "Shipping Country"
+        }
+      }
+    },
+    "outputs": {
+      "$schema": "http://json-schema.org/draft-07/schema",
+      "title": "output",
+      "type": "object",
+      "required": [
+        "comment"
+      ],
+      "properties": {
+        "comment": {
+          "type": "string",
+          "title": "Comment",
+          "description": "Comment to buyer"
+        }
+      }
+    },
+    "category": "approval"
+  }
+}
