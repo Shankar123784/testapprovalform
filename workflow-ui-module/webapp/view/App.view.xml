@@ -686,23 +686,23 @@
                 <content>
                         <HBox justifyContent="SpaceBetween" wrap="Wrap" class="inputContainer">
                             <VBox width="auto" class="sapUiSmallMarginBeginEnd">
-                                <ObjectStatus title="MDN No" text="4364654775"></ObjectStatus>
+                                <ObjectStatus title="MDN No" text="{LocalModel>/MDN/mdnNo}"></ObjectStatus>
                                 <!-- <Label text="MDN No"></Label>
                                 <Text text="4364654775"/> -->
                             </VBox>
                             <VBox width="auto" class="sapUiSmallMarginBeginEnd">
                                 
-                                <ObjectStatus title="MDN Date" text="2025-02-23"></ObjectStatus>
+                                <ObjectStatus title="MDN Date" text="{LocalModel>/MDN/mdnDate}"></ObjectStatus>
                                 <!-- <Label text="MDN Date" required="true" class="sapUiTinyMarginBottom"/>
                                 <Text text="2025-02-23"/> -->
                             </VBox>
                             <VBox width="auto" class="sapUiSmallMarginBeginEnd">
-                                <ObjectStatus title="MDN Type" text="Others, Others, Others"> </ObjectStatus>
+                                <ObjectStatus title="MDN Type" text="{LocalModel>/MDN/mdnType}"> </ObjectStatus>
                                 <!-- <Label text="MDN Type" required="true" class="sapUiTinyMarginBottom"/>
                                 <Text text="Others"/> -->
                             </VBox>
                             <VBox width="auto" class="sapUiSmallMarginBeginEnd">
-                                <ObjectStatus title="Total Value of MDN(INR/USD)" text="57432"> </ObjectStatus>
+                                <ObjectStatus title="Total Value of MDN(INR/USD)" text="{LocalModel>/MDN/totalValue}"> </ObjectStatus>
                                 <!-- <Label text="Total Value of MDN(INR/USD)" required="true" class="sapUiTinyMarginBottom"/>
                                 <Text text="57432"/> -->
                             </VBox>
@@ -718,19 +718,19 @@
                                 <HBox justifyContent="SpaceBetween" wrap="Wrap" class="inputContainer">
                                     <VBox>
                                         <Label text="Reason for Obsolescence"></Label>
-                                        <Text text="Material under Insurance Claim, Pharmacopeial Change, Others"/>
+                                        <Text text="{LocalModel>/MDN/reasonforobsoloscence}"/>
                                     </VBox>
                                 </HBox>
                                 <HBox justifyContent="SpaceBetween" wrap="Wrap" class="inputContainer sapUiSmallMarginTop">
                                     <VBox>
                                         <Label text="Others"></Label>
-                                        <Text text="Testing or Demo"/>
+                                        <Text text="{LocalModel>/MDN/others}"/>
                                     </VBox>
                                 </HBox>
                                 <HBox justifyContent="SpaceBetween" wrap="Wrap" class="inputContainer">
                                     <VBox>
                                         <Label text="Loss Brone By"></Label>
-                                        <Text text="India Business, API"/>
+                                        <Text text="{LocalModel>/MDN/lossbroneby}"/>
                                     </VBox>
                                 </HBox>
                                 <HBox justifyContent="SpaceBetween" wrap="Wrap" class="inputContainer sapUiSmallMarginTop">
@@ -740,11 +740,11 @@
                                     </VBox>
                                     <VBox width="23%">
                                         <Label text="Pharma Mfg Location" required="true" class="sapUiTinyMarginBottom"/>
-                                        <Text text="Dewas"/>
+                                        <Text text="{LocalModel>/MDN/market}"/>
                                     </VBox>
                                     <VBox width="23%">
                                         <Label text="Vendor" required="true" class="sapUiTinyMarginBottom"/>
-                                        <Text text="Dewas"/>
+                                        <Text text="{LocalModel>/MDN/vendor}"/>
                                     </VBox>
                                     <VBox width="23%">
                                         <Label text="Others" required="true" class="sapUiTinyMarginBottom"/>
@@ -875,7 +875,7 @@
                                 <HBox justifyContent="SpaceBetween" wrap="Wrap" class="inputContainer sapUiSmallMarginTop">
                                     <VBox width="100%">
                                         <Label text="Comments/Remarks"></Label>
-                                        <TextArea rows="3" width="100%"></TextArea>
+                                        <TextArea rows="3" value="{context>/comment}" width="100%"></TextArea>
                                     </VBox>
                                 </HBox>
                             </VBox>

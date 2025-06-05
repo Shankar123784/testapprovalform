@@ -153,8 +153,7 @@
         "orderAmount",
         "orderDate",
         "expectedDeliveryDate",
-        "shippingCountry",
-        "tableData"
+        "shippingCountry"
       ],
       "properties": {
         "customerName": {
